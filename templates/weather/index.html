@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title> My Weather </title>
+	</head>
+
+	<body>
+		<h1> My Weather </h1>
+		
+		{% if cities %}
+		<select>
+			<option value="" disabled="disabled" selected="selected">Please select a city</option>
+			{% for c in cities %}
+			<option>{{c.cityName}}</option>
+			{% endfor %}
+		</select>
+		{% endif %}
+		
+	</body>
+</html>

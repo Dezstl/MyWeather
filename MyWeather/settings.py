@@ -52,6 +52,11 @@ ROOT_URLCONF = 'MyWeather.urls'
 
 WSGI_APPLICATION = 'MyWeather.wsgi.application'
 
+#Templates
+
+TEMPLATE_DIRS = {
+	"C:/Python34/MyWeather/templates",
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
