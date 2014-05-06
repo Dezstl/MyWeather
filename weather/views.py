@@ -17,7 +17,7 @@ def home(request):
 	
 def apitest(request):
 	
-	u = "http://api.openweathermap.org/data/2.5/find?q=London&mode=json"
+	u = "http://api.openweathermap.org/data/2.5/weather?q=Chicago,us"
 	r = requests.get(u)
 	j = json.loads(r.text)
 	
