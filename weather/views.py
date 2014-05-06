@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from weather.models import Locations
 from django.template import Context, loader
+import requests
+import json 
 
 
 # Create your views here.
@@ -14,11 +16,10 @@ def home(request):
 
 	
 def apitest(request):
-	try:
-		u = "http://api.openweathermap.org/data/2.5/weather?q={0}&units={1}"
-		r = requests.get(u.format(loc, units))
-		j = json.loads(r.text)
-	except:
-		sys.stderr.write("Couldn't load current conditions\n")
 	
-	return HttpResponse(j)
+	u = "http://api.openweathermap.org/data/2.5/find?q=London&mode=json"
+	r = requests.get(u)
+	j = json.loads(r.text)
+	
+	
+	return HttpResponse(r)
