@@ -4,6 +4,7 @@ from weather.models import Locations
 from django.template import Context, loader
 import requests
 import json 
+from utils import WeatherByCityName
 
 
 # Create your views here.
@@ -15,11 +16,6 @@ def home(request):
 	return HttpResponse(t.render(c))
 
 	
-def apitest(request):
-	
-	u = "http://api.openweathermap.org/data/2.5/weather?q=Chicago,us"
-	r = requests.get(u)
-	j = json.loads(r.text)
-	
-	
-	return HttpResponse(r)
+def apitest(request, city):
+	response = WeatherByCityName(city)
+	return HttpResponse(response)
