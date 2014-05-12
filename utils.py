@@ -1,10 +1,12 @@
-import urllib.request
+import json
+import requests
 
 
 def WeatherByCityName(name):
-	baseUrl = 'http://api.openweathermap.org/data/2.5/weather?q='
-	url = baseUrl + name
+	baseUrl = 'http://api.openweathermap.org/data/2.5/weather?'
+		
+	params = {'q': name, 'units': 'imperial'}
 	
-	response = urllib.request.urlopen(url)
-	return response
+	resp = requests.get(url=baseUrl, params=params).json()
 	
+	return resp
